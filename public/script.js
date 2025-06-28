@@ -1,3 +1,5 @@
+let isNavOpen = false;
+
 function sendMessage(event) {
     event.preventDefault(); // prevent actual form submission
 
@@ -20,4 +22,15 @@ function sendMessage(event) {
     const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
     window.open(url, '_blank');
+  }
+
+  function navClick(){
+    isNavOpen = !isNavOpen;
+    let navElement = document.getElementsByClassName('nav-menu');
+    if(isNavOpen){        
+        navElement[0].style.left = '0';        
+    }
+    else{
+        navElement[0].style.left = '-100%';
+    }
   }
